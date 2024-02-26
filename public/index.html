@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="javascripts/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/site.css">
+
+    <title>Recipe Manager</title>
+</head>
+
+<body>
+
+<div data-role="page" id="home"> <!-- Page 1 ------------------------------> 
+
+    <div data-role="header" data-theme="b">
+        <h1>Home Page</h1>
+    </div>
+
+    <div data-role="content" data-theme="a">
+        <h3>Welcome to your Recipe Manager</h3>
+        <p>You can store all your recipes on this website!</p>
+        <br>
+        <a href="#add-recipe" data-role="button" data-transition="slide">Add New Recipe</a>
+        <a href="#view-recipes" data-role="button" data-transition="slide">View Recipes</a>
+    </div>
+
+    <div data-role="footer" data-theme="b">
+        <h4>© 2024 Recipe Manager</h4>
+    </div>
+</div> <!-- End of page 1 -------------------------------------------------> 
+
+<div data-role="page" id="add-recipe"> <!-- Page 2 ------------------------> 
+    
+    <div data-role="header" data-theme="b">
+
+        <div data-role="navbar" data-theme="b">
+            <ul>
+            <li><a href="#home" data-transition="pop" >Home Page</a></li>
+            <li><a href="#view-recipes" data-transition="slide" >View Recipes</a></li>
+            </ul>
+        </div>
+
+        <h1>Add Recipe</h1>
+    </div>
+
+    <div data-role="content" data-theme="a">
+
+        <h2>Add New Recipe</h2>
+        <form id="recipe-form">
+            <label for="recipe-category">Category:</label>
+            <select id="recipe-category">
+                <option disabled selected value> -- select an option --</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+
+            <label for="recipe-name">Recipe Name:</label>
+            <input type="text" value="" id="recipe-name" />
+
+            <label for="recipe-time">Cook Time:</label>
+            <input type="text" value="" id="recipe-time" />
+
+            <label for="recipe-ingredients">Ingredients:</label>
+            <textarea id="recipe-ingredients"></textarea>
+
+            <label for="recipe-instructions">Instructions:</label>
+            <textarea id="recipe-instructions"></textarea>
+
+            <button id="buttonAdd">Add Recipe</button>
+        </form>
+    </div>
+
+    <div data-role="footer" data-theme="b">
+        <h4>© 2024 Recipe Manager</h4>
+    </div>
+</div> <!-- End of page 2 -------------------------------------------------> 
+
+<div data-role="page" id="view-recipes"> <!-- Page 3 ----------------------> 
+    
+    <div data-role="header" data-theme="b">
+
+        <div data-role="navbar" data-theme='e'>
+            <ul>
+            <li><a href="#home" data-transition="pop" >Home Page</a></li>
+            <li><a href="#add-recipe" data-transition="slide" >Add Recipe</a></li>
+            </ul>
+        </div>
+
+        <h1>View Recipes</h1>
+    </div>
+
+    <div data-role="content" data-theme="c">
+        <h2>Recipe List</h2>
+        <ul data-role="listview" id="recipe-list" data-inset="true"></ul>
+    </div>
+
+    <div data-role="footer" data-theme="b">
+        <h4>© 2024 Recipe Manager</h4>
+    </div>
+</div> <!-- End of page 3 -------------------------------------------------> 
+
+<div data-role="page" id="details"> <!-- Page 4 ----------------------> 
+    
+    <div data-role="header" data-theme="b">
+
+        <div data-role="navbar" data-theme='e'>
+            <ul>
+            <li><a href="#home" data-transition="pop" >Home Page</a></li>
+            <li><a href="#add-recipe" data-transition="slide" >Add Recipe</a></li>
+            <li><a href="#view-recipes" data-transition="slide" >View Recipes</a></li>
+            </ul>
+        </div>
+
+        <h1>Recipe Details</h1>
+    </div>
+
+    <div data-role="content" data-theme="c">
+        <p id="oneName"></p>
+        <p id="oneCategory"></p>
+        <p id="oneTime"></p>
+        <p id="oneIngredients"></p>
+        <p id="oneInstructions"></p>
+    </div>
+
+    <div data-role="footer" data-theme="b">
+        <h4>© 2024 Recipe Manager</h4>
+    </div>
+</div> <!-- End of page 4 -------------------------------------------------> 
+
+</body>
+</html>

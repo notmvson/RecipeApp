@@ -1,0 +1,29 @@
+[data-role="page"] {
+  position: relative;
+  min-height: 100%;
+}
+
+[data-role="footer"] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.delete-button {
+  background-color: #bebebe;
+  color: white;
+  border: none;
+  padding: 1px 10px 1px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background-color: #bebebe;
+}
+
+#oneName {
+  text-align: center;
+}
