@@ -25,10 +25,25 @@ $(document).on("pagebeforeshow", "#add-recipe", function() {
 
         // Validates forms are filled out
         if (category && name && time && ingredients && instructions) { 
-            RecipeArray.push(new RecipeObject(category, name, time, ingredients, instructions));
-            document.location.href = "#view-recipes";
+            let newRecipe = new RecipeObject(category, name, time, ingredients, instructions);
+            //document.location.href = "#view-recipes";
             $("#recipe-category, #recipe-name, #recipe-time, #recipe-ingredients, #recipe-instructions").val("");
             createList();
+
+            $.ajax({
+                url: "/addRecipe",
+                type: "POST",
+                data: JSON.stringify(newRecipe),
+                contentType: "application/json; charset=utf-8",
+                success: function(result) {
+                    console.log(result);
+                    document.location.href= "#view-recipes";
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Server could not add Recipe: " + newRecipe.name);
+                    alert(textStatus + " " + errorThrown);
+                }
+            })
         } else {
             alert("Please fill in all fields before adding a recipe.");
         }

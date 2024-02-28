@@ -27,6 +27,13 @@ router.get('/', function(req, res, next) {
 /* GET all recipe data */
 router.get('/getAllRecipes', function(req, res) {
   res.status(200).json(serverArray);
-})
+});
+
+/* Add one new Recipe */
+router.post('/addRecipe', function(req, res) {
+  const newRecipe = req.body;
+  serverArray.push(newRecipe);
+  res.status(200).json(newRecipe);
+});
 
 module.exports = router;
