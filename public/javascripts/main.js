@@ -88,8 +88,8 @@ function createList() {
             var li = $("<li>").html("<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> <i>Ingredients:</i> " + element.ingredients);
             li.addClass("oneRecipe");
             li.attr("data-parm", element.ID);
-            var deleteButton = $("<button>").text("Delete").addClass("delete-button").data("index", index);
-            li.append(deleteButton);
+            //var deleteButton = $("<button>").text("Delete").addClass("delete-button").data("index", index);
+            //li.append(deleteButton);
             myul.append(li);
         });
 
@@ -109,10 +109,23 @@ function createList() {
             })
         })
     })
-
-    $(".delete-button").on("click", function() { //delete buttons
-        var indexToRemove = $(this).data("index");
+    
+    document.getElementById("delete").addEventListener("click", function() {
+        let recipeID = localStorage.getItem("parm");
+        $.ajax({
+            type: "DELETE",
+            url: "/deleteRecipe/" + recipeID,
+            success: function(result) {
+                alert(result);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert("Server could not delete Recipe with ID " + ID)
+            }
+        })
+    })
+    /*$(".delete-button").on("click", function() { //delete buttons
+        var indexToRemove = $(this).data("ID");
         RecipeArray.splice(indexToRemove, 1); // Remove the recipe at the specified index
         createList();
-    });
+    }); */
 }
