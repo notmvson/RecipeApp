@@ -9,6 +9,13 @@
   width: 100%;
 }
 
+[data-role="footer2"] {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
 .delete-button {
   background-color: #bebebe;
   color: white;
